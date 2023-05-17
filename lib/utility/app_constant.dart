@@ -15,8 +15,8 @@ class AppConstant {
   BoxDecoration radienBox({required BuildContext context}) => BoxDecoration(
         gradient: RadialGradient(
           colors: [Colors.white, Theme.of(context).primaryColor],
-          radius: 1,
-          center: Alignment(-0.5,-0.5),
+          radius: 1.2,
+          center: const Alignment(-0.5,-0.5),
         ),
       );
 }

@@ -8,12 +8,14 @@ class WidgetForm extends StatelessWidget {
     this.suffixWidget,
     this.obsecu,
     this.textEditingController,
+    this.labelWidget,
   }) : super(key: key);
 
   final String? hint;
   final Widget? suffixWidget;
   final bool? obsecu;
   final TextEditingController? textEditingController;
+  final Widget? labelWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,11 @@ class WidgetForm extends StatelessWidget {
       margin: const EdgeInsets.only(top: 16),
       width: 250,
       height: 40,
-      child: TextFormField(controller: textEditingController,
+      child: TextFormField(
+        controller: textEditingController,
         obscureText: obsecu ?? false,
         decoration: InputDecoration(
+            label: labelWidget,
             suffixIcon: suffixWidget,
             hintText: hint,
             filled: true,

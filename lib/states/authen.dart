@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nineproj/utility/app_constant.dart';
 import 'package:nineproj/utility/app_controller.dart';
+import 'package:nineproj/utility/app_service.dart';
 import 'package:nineproj/utility/app_snackbar.dart';
 import 'package:nineproj/widgets/widget_button.dart';
 import 'package:nineproj/widgets/widget_form.dart';
@@ -55,7 +56,11 @@ class _AuthenState extends State<Authen> {
                         title: 'Have Space ?',
                         message: 'Please Fill Every Blank')
                     .errorSnackBar();
-              } else {}
+              } else {
+                AppService().checkAuthen(
+                    user: userController.text,
+                    password: passwordController.text, context: context);
+              }
             },
           ),
         ),
@@ -116,7 +121,10 @@ class _AuthenState extends State<Authen> {
               ),
               WidgetText(
                 data: 'Nine ProJ',
-                textStyle: Theme.of(context).textTheme.titleLarge,
+                textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
               )
             ],
           ),
